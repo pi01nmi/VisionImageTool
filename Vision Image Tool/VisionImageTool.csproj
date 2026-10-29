@@ -1,0 +1,359 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B0B6331A-4201-42E1-AA2E-306D9B359F51}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>VisionImageTool</RootNamespace>
+    <AssemblyName>Vision Image Tool</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Vision Image Tool.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Basler.Pylon, Version=1.2.0.0, Culture=neutral, PublicKeyToken=e389355f398382ab, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Basler.Pylon.dll</HintPath>
+    </Reference>
+    <Reference Include="LiteDB, Version=5.0.21.0, Culture=neutral, PublicKeyToken=4ee40123013c9f27, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiteDB.5.0.21\lib\net45\LiteDB.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=3.3.0.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.3.3.0\lib\net462\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=9.0.0.7, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.9.0.7\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.HashCode, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.HashCode.6.0.0\lib\net462\Microsoft.Bcl.HashCode.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Buffers, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.6.1\lib\net462\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.6.3\lib\net462\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.6.1\lib\net462\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.1.2\lib\net462\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.4.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.6.3\lib\net462\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="cModelDB.cs" />
+    <Compile Include="cTLibs.cs" />
+    <Compile Include="frmMainV1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMainV1.Sdk.cs">
+      <DependentUpon>frmMainV1.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="frmMainV1.Push.cs">
+      <DependentUpon>frmMainV1.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="frmMainV1.CameraTiming.cs">
+      <DependentUpon>frmMainV1.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="frmMainV1.Designer.cs">
+      <DependentUpon>frmMainV1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogV1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ucDatasetManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucDatasetManager.Designer.cs">
+      <DependentUpon>ucDatasetManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SchemaChipsPanel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ucDatasetManager.Compare.cs">
+      <DependentUpon>ucDatasetManager.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ucDatasetManager.Issues.cs">
+      <DependentUpon>ucDatasetManager.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ucDatasetManager.Watch.cs">
+      <DependentUpon>ucDatasetManager.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ucDatasetManager.Lock.cs">
+      <DependentUpon>ucDatasetManager.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ucDatasetManager.Folder.cs">
+      <DependentUpon>ucDatasetManager.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ucDatasetManager.Json.cs">
+      <DependentUpon>ucDatasetManager.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ucDatasetManager.Collection.cs">
+      <DependentUpon>ucDatasetManager.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FolderAutoRefresh.cs" />
+    <Compile Include="frmMainV1.AutoRefresh.cs">
+      <DependentUpon>frmMainV1.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="frmMainV1.Duplicate.cs">
+      <DependentUpon>frmMainV1.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CardPanel.cs" />
+    <Compile Include="frmMainV1.CaptureLayout.cs">
+      <DependentUpon>frmMainV1.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="frmMainV1.Layout.cs">
+      <DependentUpon>frmMainV1.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ucDatasetManager.Shell.cs">
+      <DependentUpon>ucDatasetManager.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ucDatasetManager.Toolbar.cs">
+      <DependentUpon>ucDatasetManager.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ucDatasetManager.Undo.cs">
+      <DependentUpon>ucDatasetManager.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ucDatasetManager.Shots.cs">
+      <DependentUpon>ucDatasetManager.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ucDatasetManager.ExportOrder.cs">
+      <DependentUpon>ucDatasetManager.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ucDatasetManager.Preview.cs">
+      <DependentUpon>ucDatasetManager.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ucDatasetManager.Layout.cs">
+      <DependentUpon>ucDatasetManager.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="frmMainV1.Status.cs">
+      <DependentUpon>frmMainV1.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="frmMainV1.Files.cs">
+      <DependentUpon>frmMainV1.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="frmMainV1.View.cs">
+      <DependentUpon>frmMainV1.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="frmStatusV1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStatusV1.Designer.cs">
+      <DependentUpon>frmStatusV1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StatusItem.cs" />
+    <Compile Include="ProdConfig.cs" />
+    <Compile Include="WicImaging.cs" />
+    <Compile Include="ProductionPy.cs" />
+    <Compile Include="AppLog.cs" />
+    <Compile Include="UnitXSdkLog.cs" />
+    <Compile Include="frmProductionPy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProductionPy.Designer.cs">
+      <DependentUpon>frmProductionPy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmProdCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProdCheck.Designer.cs">
+      <DependentUpon>frmProdCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZoomPictureBox.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DatasetExportOptions.cs" />
+    <Compile Include="frmExportOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmExportOptions.Designer.cs">
+      <DependentUpon>frmExportOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DatasetSchema.cs" />
+    <Compile Include="XlsxWriter.cs" />
+    <Compile Include="ImageFileOps.cs" />
+    <Compile Include="ImageListMenu.cs" />
+    <Compile Include="FileHistory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Theme.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ImageComments.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="frmDeleteImages.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDeleteImages.Designer.cs">
+      <DependentUpon>frmDeleteImages.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRenameImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRenameImage.Designer.cs">
+      <DependentUpon>frmRenameImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmImageProperties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmImageProperties.Designer.cs">
+      <DependentUpon>frmImageProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogV1.Designer.cs">
+      <DependentUpon>frmLogV1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmMainV1.resx">
+      <DependentUpon>frmMainV1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogV1.resx">
+      <DependentUpon>frmLogV1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="log4net.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\DataSources\" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SDX.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SDX64.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Vision Image Tool.ico" />
+    <None Include="Resources\AppLogo.png" />
+    <None Include="Resources\IconCapture.png" />
+    <None Include="Resources\IconDataset.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
