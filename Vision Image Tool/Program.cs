@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -38,104 +37,11 @@ namespace VisionImageTool
             }
         }
 
-        /// <summary>
-        /// BẬT / TẮT kiểm tra license. Đang TẮT theo yêu cầu (2026-09-25) - đổi thành true để bật lại,
-        /// toàn bộ logic license bên dưới vẫn giữ nguyên.
-        /// </summary>
-        private const bool LicenseCheckEnabled = false;
-
-        /// <summary>Kiểm tra license (tạo file yêu cầu cấp phép nếu thiếu / lỗi). false = phải thoát.</summary>
-        private static bool CheckLicense()
-        {
-            string licensePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "license.dat");
-            string stateDir = Path.Combine(
-                Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
-                "NMI",
-                "VisionApp");
-            string statePath = Path.Combine(stateDir, "license_state.json");
-            // ===== 1. Ensure folder tồn tại =====
-            if (!Directory.Exists(stateDir))
-            {
-                Directory.CreateDirectory(stateDir);
-            }
-            // ===== 2. Nếu chưa có license => tạo request =====
-            if (!File.Exists(licensePath))
-            {
-                try
-                {
-                    var request = LicenseRequestGenerator.Create(
-                        customer: "NANO",
-                        productCode: "NMI-VISION",
-                        productVersion: "1.0.0");
-                    string requestPath = Path.Combine(stateDir, "license_request.json");
-                    FileStorage.SaveJson(requestPath, request);
-                    MessageBox.Show(
-                        "Phần mềm chưa được kích hoạt.\n\n" +
-                        "Đã tạo file yêu cầu cấp phép tại:\n" +
-                        requestPath + "\n\n" +
-                        "Vui lòng gửi file này cho nhà cung cấp để nhận license.",
-                        "License Activation Required",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
-                    return false;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(
-                        "Không thể tạo license request.\n" + ex.Message,
-                        "Error",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
-                    return false;
-                }
-            }
-            // ===== 3. Có license => validate =====                
-            var validator = new LicenseValidator(cTLibs.publicKeyXml, licensePath, statePath);
-            var result = validator.ValidateAndUpdateState();
-            if (!result.IsValid)
-            {
-                // ===== 4. Nếu license lỗi => vẫn cho export request =====
-                try
-                {
-                    var request = LicenseRequestGenerator.Create(
-                        customer: "NANO",
-                        productCode: "NMI-VISION",
-                        productVersion: "1.0.0");
-                    string requestPath = Path.Combine(stateDir, "license_request.json");
-                    FileStorage.SaveJson(requestPath, request);
-                    MessageBox.Show(
-                        result.Message + "\n\n" +
-                        "Đã tạo file yêu cầu cấp phép mới tại:\n" +
-                        requestPath,
-                        "License Error",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
-                }
-                catch
-                {
-                    MessageBox.Show(
-                        result.Message,
-                        "License Error",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
-                }
-                return false;
-            }
-            return true;
-        }
-
         [STAThread]
         static void Main()
         {
             try
             {
-                // ===== License: đang TẮT (LicenseCheckEnabled) =====
-                if (LicenseCheckEnabled && !CheckLicense())
-                {
-                    Application.Exit();
-                    return;
-                }
-
                 // Phiên được mở bởi RestartApplication() chờ phiên cũ thoát hẳn rồi mới giành mutex,
                 // nếu không sẽ báo nhầm "Only one instance".
                 bool restarted = Array.IndexOf(Environment.GetCommandLineArgs(), RestartArgument) >= 0;

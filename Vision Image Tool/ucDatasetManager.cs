@@ -3276,15 +3276,6 @@ namespace VisionImageTool
             ShowStatusSummary();
         }
 
-        /// <summary>
-        /// Nhãn của cả mẫu (một hàng Excel) = mức XẤU NHẤT trong các ảnh của mẫu: X, rồi Δ, rồi O.
-        /// Mỗi ảnh lấy nhãn thủ công của riêng nó, chưa gán thì lấy kết quả UnitX.
-        /// </summary>
-        private string GroupEvaluation(IEnumerable<DatasetImage> pair)
-        {
-            return WorstLabel(pair.Select(EffectiveEvaluation));
-        }
-
         /// <summary>Nhãn xấu nhất trong danh sách: X, rồi Δ, rồi O; không có nhãn nào thì "".</summary>
         private static string WorstLabel(IEnumerable<string> labels)
         {

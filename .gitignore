@@ -1,29 +1,62 @@
-# Visual Studio
+# ===== Visual Studio / IDE =====
 .vs/
+.vscode/
+.idea/
 *.suo
 *.user
 *.userosscache
+*.rsuser
 *.sln.docstates
 
-# Build output
+# ===== Build output =====
 [Bb]in/
 [Oo]bj/
 [Dd]ebug/
 [Rr]elease/
 x64/
 x86/
+[Ll]og/
+[Ll]ogs/
 *.pdb
+*.ilk
+*.obj
+*.pch
+*.vspscc
+*.vssscc
 
-# NuGet - khôi phục bằng "Restore NuGet Packages"
+# ===== NuGet - khôi phục bằng "Restore NuGet Packages" =====
 packages/
 *.nupkg
+*.snupkg
 
-# Thư mục sao lưu cục bộ
+# ===== Dữ liệu runtime của phần mềm (sinh ra khi chạy, nằm cạnh exe) =====
+pushv13/
+
+# ===== License: gắn với từng máy, không đưa lên Git =====
+license.dat
+license_state.json
+license_request.json
+
+# ===== Tài liệu: chỉ đưa lên GitHub bản PDF đang dùng (README liên kết) + ảnh giao diện =====
+# Bản nguồn .docx/.pptx và tài liệu nội bộ khác vẫn giữ ở máy, không đưa lên Git.
+docs/*
+!docs/vision-image-tool.png
+!docs/n-hd-nmiavitest-01-huong-dan-lap-bao-cao-test-avi.pdf
+!docs/huong-dan-su-dung-phan-mem.pdf
+!docs/luu-do-xu-ly-dataset.pdf
+
+# ===== Thư mục sao lưu cục bộ =====
 _backup*/
 _removed*/
 
-# File tạm
+# ===== File tạm =====
 *.tmp
+*.temp
+*.bak
+*.orig
+*.swp
 *.log
 ~$*
 Thumbs.db
+Desktop.ini
+.DS_Store

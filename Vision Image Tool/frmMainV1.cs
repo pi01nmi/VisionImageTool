@@ -624,21 +624,6 @@ namespace VisionImageTool
             }
         }
 
-        /// <summary>Vẽ viền mảnh cho các panel dạng "thẻ" (card) - thay cho BorderStyle mặc định khá thô.</summary>
-        private void CardPanel_Paint(object sender, PaintEventArgs e)
-        {
-            var panel = sender as Panel;
-            if (panel == null)
-            {
-                return;
-            }
-
-            using (var pen = new Pen(Color.FromArgb(222, 226, 233)))
-            {
-                e.Graphics.DrawRectangle(pen, 0, 0, panel.Width - 1, panel.Height - 1);
-            }
-        }
-
         #endregion
 
         #region Part type / edge
@@ -2878,22 +2863,6 @@ namespace VisionImageTool
             });
         }
 
-        /// <summary>Ngắt rồi kết nối lại SDK để thử nạp client.yaml mới mà không phải tắt phần mềm.</summary>
-        private async void ReconnectSdk()
-        {
-            try
-            {
-                UpdateStatus("Đang kết nối lại UnitX...");
-                StopSdk();
-                await Task.Delay(500);
-                await ConnectAsync();
-            }
-            catch (Exception ex)
-            {
-                Log("Kết nối lại thất bại: " + ex.Message);
-            }
-        }
-
         #endregion
 
         #region Kiểm tra mạng tới UnitX
@@ -3288,15 +3257,5 @@ namespace VisionImageTool
         }
 
         #endregion
-
-        private void lblPathHeader_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tlpPathRow2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }

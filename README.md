@@ -1,6 +1,6 @@
 # Vision Image Tool
 
-![Vision Image Tool](docs/Vision%20Image%20Tool.png)
+![Vision Image Tool](docs/vision-image-tool.png)
 
 Phần mềm Windows hỗ trợ kiểm thử hệ thống AI Vision **UnitX**: đẩy ảnh / chụp camera qua UnitX SDK, nhận kết quả OK/NG, và quản lý dataset ảnh Raw/Mask để lập báo cáo test.
 
@@ -35,8 +35,18 @@ Phần mềm Windows hỗ trợ kiểm thử hệ thống AI Vision **UnitX**: �
 
 Cấu hình và log của phần mềm lưu tại thư mục `pushv13` cạnh file exe.
 
+## Kiểm thử
+
+Bộ test hồi quy không cần phần cứng (không kết nối UnitX / camera): kiểm tra schema, đọc dataset, phát hiện file ảnh hỏng, dựng giao diện.
+
+```powershell
+.\tests\run-regression.ps1 -Exe "Vision Image Tool\bin\Debug\Vision Image Tool.exe"
+# So sánh với một bản build cũ:
+.\tests\run-regression.ps1 -Exe "<bản mới>.exe" -BaselineExe "<bản cũ>.exe"
+```
+
 ## Tài liệu
 
-- [Hướng dẫn lập báo cáo test AVI (PDF)](docs/N-HD-NMIAVITEST-01_Huong-dan-lap-bao-cao-test-AVI.pdf)
-- [Hướng dẫn sử dụng sản phẩm (DOCX)](docs/product-guide.docx)
-- [Lưu đồ xử lý dataset (DOCX)](docs/Luu-do-xu-ly-dataset.docx)
+- [Hướng dẫn lập báo cáo test AVI](docs/n-hd-nmiavitest-01-huong-dan-lap-bao-cao-test-avi.pdf)
+- [Hướng dẫn sử dụng phần mềm](docs/huong-dan-su-dung-phan-mem.pdf)
+- [Lưu đồ xử lý dataset](docs/luu-do-xu-ly-dataset.pdf)

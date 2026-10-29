@@ -5,7 +5,6 @@ using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace VisionImageTool

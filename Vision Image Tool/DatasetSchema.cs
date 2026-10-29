@@ -96,9 +96,6 @@ namespace VisionImageTool
     {
         public const string DefaultText = "<Model>_<DK>_<SPL>_<Raw/Mask>_<Đánh giá>_<Hậu tố>";
 
-        /// <summary>Schema mặc định của chế độ "Theo thư mục": mỗi cấp thư mục một trường, tên file là hậu tố.</summary>
-        public const string DefaultFolderText = @"<Model>\<DK>\<NG>\<Tray>\<SPL>\<Raw/Mask>\<Đánh giá>\<Hậu tố>";
-
         /// <summary>Schema mẫu duy nhất trong menu 🕘 (mỗi cấp thư mục một trường, tên file là Raw / Mask).</summary>
         public const string SampleText = @"<ĐK>\<No>\<Tên sản phẩm>\<Mã sheet-tray>\<Vị trí>\<Mặt>\<Nội dung NG>\<Đánh giá>\<Raw/Mask>.<Extension>";
 
